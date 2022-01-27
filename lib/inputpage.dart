@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const double BottomButtonHeight = 80.0;
+const Color activeCardColor = Color(0xFF1D1E33);
+const Color bottomContainerColor = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
 
@@ -22,25 +26,47 @@ class _InputPageState extends State<InputPage> {
                 flex: 2,
                 child: Row(
                   children: [
-                    Expanded(child: ReusableCard(Color(0xFF1D1E33))),
-                    Expanded(child: ReusableCard(Color(0xFF1D1E33))),
+                    Expanded(
+                      child: ReusableCard(activeCardColor),
+                    ),
+                    Expanded(
+                      child: ReusableCard(activeCardColor),
+                    ),
                   ],
                 ),
               ),
-              Expanded(flex: 2, child: ReusableCard(Color(0xFF1D1E33))),
+              Expanded(
+                flex: 2,
+                child: ReusableCard(activeCardColor),
+              ),
               Expanded(
                 flex: 2,
                 child: Row(
                   children: [
-                    Expanded(child: ReusableCard(Color(0xFF1D1E33))),
-                    Expanded(child: ReusableCard(Color(0xFF1D1E33))),
+                    Expanded(
+                      child: ReusableCard(activeCardColor),
+                    ),
+                    Expanded(
+                      child: ReusableCard(activeCardColor),
+                    ),
                   ],
                 ),
               ),
-              Expanded(
-                child: ReusableCard(Colors.red),
-                flex: 1,
-              )
+              Container(
+                color: bottomContainerColor,
+                margin: EdgeInsets.only(top: 10.0),
+                width: double.infinity,
+                height: BottomButtonHeight,
+                child: Center(
+                    child: Text(
+                  'CALCULATE',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 3),
+                )),
+              ),
             ],
           ),
         ));
@@ -49,7 +75,7 @@ class _InputPageState extends State<InputPage> {
 
 class ReusableCard extends StatelessWidget {
   ReusableCard(this.colour);
-  Color colour;
+  final Color colour;
   @override
   Widget build(BuildContext context) {
     return Container(
