@@ -38,6 +38,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
+        onPressed: (){},
       ),
     );
   }
