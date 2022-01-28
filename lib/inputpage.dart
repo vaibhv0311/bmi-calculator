@@ -53,7 +53,6 @@ class _InputPageState extends State<InputPage> {
                 flex: 2,
                 child: ReusableCard(
                   colour: activeCardColor,
-                  cardChild: Container(),
                 ),
               ),
               Expanded(
@@ -63,13 +62,11 @@ class _InputPageState extends State<InputPage> {
                     Expanded(
                       child: ReusableCard(
                         colour: activeCardColor,
-                        cardChild: Container(),
                       ),
                     ),
                     Expanded(
                       child: ReusableCard(
                         colour: activeCardColor,
-                        cardChild: Container(),
                       ),
                     ),
                   ],
