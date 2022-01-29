@@ -8,7 +8,6 @@ class ReusableCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: onPress!(),
       child: Container(
@@ -22,4 +21,3 @@ class ReusableCard extends StatelessWidget {
     );
   }
 }
-

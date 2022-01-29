@@ -36,11 +36,11 @@ class _InputPageState extends State<InputPage> {
                   children: [
                     Expanded(
                       child: ReusableCard(
-                        onPress: (){
-                          setState(() {
-                            selected=GenderType.male;
-                          });
-                        },
+                          onPress: () {
+                            setState(() {
+                              selected = GenderType.male;
+                            });
+                          },
                           colour: selected == GenderType.male
                               ? activeCardColor
                               : inactiveCardColor,
@@ -51,9 +51,9 @@ class _InputPageState extends State<InputPage> {
                     ),
                     Expanded(
                       child: ReusableCard(
-                        onPress: (){
+                        onPress: () {
                           setState(() {
-                            selected=GenderType.female;
+                            selected = GenderType.female;
                           });
                         },
                         colour: selected == GenderType.female
