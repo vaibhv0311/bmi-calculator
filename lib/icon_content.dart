@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class IconContent extends StatelessWidget {
-  final IconData icontype;
+  final IconData iconType;
   final String gender;
-  IconContent({required this.icontype, required this.gender});
+  IconContent({required this.iconType, required this.gender});
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(
-          icontype,
+          iconType,
           size: 100,
           color: Colors.grey[300],
         ),
@@ -19,7 +20,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           gender,
-          style: TextStyle(color: Colors.grey[300], fontSize: 18.0),
+          style: kLabelText,
         )
       ],
     );
