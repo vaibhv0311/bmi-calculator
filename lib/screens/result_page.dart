@@ -4,7 +4,22 @@ import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:bmi_calculator/components/bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key}) : super(key: key);
+  final String bmiResult;
+  final String bmiValue;
+  final String interpretation;
+  ResultPage(
+      {required this.bmiResult,
+      required this.bmiValue,
+      required this.interpretation});
+
+  TextStyle resultCheck(String bmiResult) {
+    if (bmiResult == 'NORMAL') {
+      return kResultTextStyleGreen;
+    } else if (bmiResult == 'OVERWEIGHT') {
+      return kResultTextStyleRed;
+    } else
+      return kResultTextStyleOrange;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +50,15 @@ class ResultPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'NORMAL',
-                        style: kResultTextStyle,
+                        bmiResult,
+                        style: resultCheck(bmiResult),
                       ),
                       Text(
-                        '23.4',
+                        bmiValue,
                         style: kBMIStyle,
                       ),
                       Text(
-                        'Your body weight index is normal!',
+                        interpretation,
                         style: kBodyTextStyle,
                         textAlign: TextAlign.center,
                       )

@@ -11,9 +11,13 @@ const kSliderMin = 120.0;
 const kSliderMax = 220.0;
 const kBigTextStyle =
     TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white);
-const kResultTextStyle =
+const kResultTextStyleGreen =
     TextStyle(color: Colors.green, fontSize: 22, fontWeight: FontWeight.bold);
 const kBMIStyle = TextStyle(fontSize: 100, fontWeight: FontWeight.w900);
 const kBodyTextStyle = TextStyle(
   fontSize: 22,
 );
+const kResultTextStyleOrange =
+    TextStyle(color: Colors.orange, fontSize: 22, fontWeight: FontWeight.bold);
+const kResultTextStyleRed =
+    TextStyle(color: Colors.red, fontSize: 22, fontWeight: FontWeight.bold);
