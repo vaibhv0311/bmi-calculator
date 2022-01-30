@@ -160,26 +160,22 @@ class _InputPageState extends State<InputPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                FloatingActionButton(
-                                  onPressed: () {
+                                RoundIconButton(
+                                  icon: FontAwesomeIcons.minus,
+                                  onPress: () {
                                     setState(() {
                                       weight--;
                                     });
                                   },
-                                  backgroundColor: kActiveCardColor,
-                                  child: Icon(CupertinoIcons.minus,
-                                      color: Colors.white, size: 35),
                                 ),
                                 SizedBox(width: 10),
-                                FloatingActionButton(
-                                  onPressed: () {
+                                RoundIconButton(
+                                  icon: FontAwesomeIcons.plus,
+                                  onPress: () {
                                     setState(() {
                                       weight++;
                                     });
                                   },
-                                  backgroundColor: kActiveCardColor,
-                                  child: Icon(CupertinoIcons.plus,
-                                      color: Colors.white, size: 35),
                                 ),
                               ],
                             )
@@ -197,20 +193,9 @@ class _InputPageState extends State<InputPage> {
                               'AGE',
                               style: kLabelText,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              textBaseline: TextBaseline.alphabetic,
-                              children: [
-                                Text(
-                                  age.toString(),
-                                  style: kNumberStyle,
-                                ),
-                                Text(
-                                  ' Years',
-                                  style: kLabelText,
-                                )
-                              ],
+                            Text(
+                              age.toString(),
+                              style: kNumberStyle,
                             ),
                             SizedBox(
                               height: 4,
@@ -219,26 +204,22 @@ class _InputPageState extends State<InputPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                FloatingActionButton(
-                                  onPressed: () {
+                                RoundIconButton(
+                                  icon: FontAwesomeIcons.minus,
+                                  onPress: () {
                                     setState(() {
                                       age--;
                                     });
                                   },
-                                  backgroundColor: kActiveCardColor,
-                                  child: Icon(CupertinoIcons.minus,
-                                      color: Colors.white, size: 35),
                                 ),
                                 SizedBox(width: 10),
-                                FloatingActionButton(
-                                  onPressed: () {
+                                RoundIconButton(
+                                  icon: FontAwesomeIcons.plus,
+                                  onPress: () {
                                     setState(() {
                                       age++;
                                     });
                                   },
-                                  backgroundColor: kActiveCardColor,
-                                  child: Icon(CupertinoIcons.plus,
-                                      color: Colors.white, size: 35),
                                 ),
                               ],
                             )
@@ -267,5 +248,26 @@ class _InputPageState extends State<InputPage> {
             ],
           ),
         ));
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({required this.icon, required this.onPress});
+  final IconData icon;
+  final Function()? onPress;
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: Icon(
+        icon,
+        color: Colors.white,
+        size: 25,
+      ),
+      onPressed: onPress,
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(width: 56, height: 56),
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
+    );
   }
 }
