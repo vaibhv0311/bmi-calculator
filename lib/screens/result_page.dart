@@ -1,7 +1,8 @@
+
 import 'package:flutter/material.dart';
-import 'constants.dart';
-import 'reusable_card.dart';
-import 'inputpage.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
+import 'package:bmi_calculator/components/bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -19,7 +20,8 @@ class ResultPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   'Your Result',
                   style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
@@ -39,33 +41,22 @@ class ResultPage extends StatelessWidget {
                       ),
                       Text(
                         '23.4',
-                        style: kNumberStyle,
+                        style: kBMIStyle,
                       ),
                       Text(
                         'Your body weight index is normal!',
-                        style: kLabelText,
+                        style: kBodyTextStyle,
+                        textAlign: TextAlign.center,
                       )
                     ],
                   ),
                 ),
               ),
-              GestureDetector(
+              BottomButton(
+                buttonTitle: 'RE-CALCULATE',
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => InputPage()));
+                  Navigator.pop(context);
                 },
-                child: Container(
-                  color: kBottomContainerColor,
-                  margin: EdgeInsets.only(top: 10.0),
-                  width: double.infinity,
-                  height: kBottomButtonHeight,
-                  child: Center(
-                      child: Text(
-                    'Re-CALCULATE',
-                    textAlign: TextAlign.center,
-                    style: kBigTextStyle,
-                  )),
-                ),
               ),
             ],
           ),
