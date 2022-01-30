@@ -4,6 +4,8 @@ import 'reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
+import 'roundbutton.dart';
+import 'result_page.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -230,44 +232,29 @@ class _InputPageState extends State<InputPage> {
                   ],
                 ),
               ),
-              Container(
-                color: kBottomContainerColor,
-                margin: EdgeInsets.only(top: 10.0),
-                width: double.infinity,
-                height: kBottomButtonHeight,
-                child: Center(
-                    child: Text(
-                  'CALCULATE',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 3),
-                )),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ResultPage()));
+                },
+                child: Container(
+                  color: kBottomContainerColor,
+                  margin: EdgeInsets.only(top: 10.0),
+                  width: double.infinity,
+                  height: kBottomButtonHeight,
+                  child: Center(
+                      child: Text(
+                    'CALCULATE',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 3),
+                  )),
+                ),
               ),
             ],
           ),
         ));
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.icon, required this.onPress});
-  final IconData icon;
-  final Function()? onPress;
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(
-        icon,
-        color: Colors.white,
-        size: 25,
-      ),
-      onPressed: onPress,
-      elevation: 6.0,
-      constraints: BoxConstraints.tightFor(width: 56, height: 56),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-    );
   }
 }
