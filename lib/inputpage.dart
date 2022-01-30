@@ -23,6 +23,7 @@ class _InputPageState extends State<InputPage> {
         appBar: AppBar(
           title: Text('BMI Calculator'),
           centerTitle: true,
+          backgroundColor: kActiveCardColor,
         ),
         body: SafeArea(
           child: Column(
@@ -93,17 +94,26 @@ class _InputPageState extends State<InputPage> {
                           ),
                         ],
                       ),
-                      Slider(
-                        value: height.toDouble(),
-                        min: kSliderMin,
-                        max: kSliderMax,
-                        activeColor: kBottomContainerColor,
-                        inactiveColor: kTextColor,
-                        onChanged: (double newValue) {
-                          setState(() {
-                            height = newValue.round();
-                          });
-                        },
+                      SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          thumbShape:
+                              RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                          thumbColor: kBottomContainerColor,
+                          activeTrackColor: Colors.white,
+                          inactiveTrackColor: kTextColor,
+                        ),
+                        child: Slider(
+                          value: height.toDouble(),
+                          min: kSliderMin,
+                          max: kSliderMax,
+                          // activeColor: Colors.white,
+                          // inactiveColor: kTextColor,
+                          onChanged: (double newValue) {
+                            setState(() {
+                              height = newValue.round();
+                            });
+                          },
+                        ),
                       ),
                     ],
                   ),
