@@ -246,10 +246,7 @@ class _InputPageState extends State<InputPage> {
                       child: Text(
                     'CALCULATE',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 3),
+                    style: kBigTextStyle,
                   )),
                 ),
               ),
