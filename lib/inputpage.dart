@@ -100,7 +100,6 @@ class _InputPageState extends State<InputPage> {
                         activeColor: kBottomContainerColor,
                         inactiveColor: kTextColor,
                         onChanged: (double newValue) {
-                          print(newValue);
                           setState(() {
                             height = newValue.round();
                           });
