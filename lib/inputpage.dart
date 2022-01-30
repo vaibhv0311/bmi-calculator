@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,8 @@ enum GenderType { male, female }
 class _InputPageState extends State<InputPage> {
   GenderType? selected;
   int height = 140;
+  int weight = 60;
+  int age = 21;
 
   @override
   Widget build(BuildContext context) {
@@ -96,12 +99,14 @@ class _InputPageState extends State<InputPage> {
                       ),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
-                          thumbShape:
-                              RoundSliderThumbShape(enabledThumbRadius: 15.0),
-                          thumbColor: kBottomContainerColor,
-                          activeTrackColor: Colors.white,
-                          inactiveTrackColor: kTextColor,
-                        ),
+                            thumbShape:
+                                RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                            thumbColor: kBottomContainerColor,
+                            activeTrackColor: Colors.white,
+                            inactiveTrackColor: kTextColor,
+                            overlayShape:
+                                RoundSliderOverlayShape(overlayRadius: 30.0),
+                            overlayColor: Color(0x29EB1555)),
                         child: Slider(
                           value: height.toDouble(),
                           min: kSliderMin,
@@ -126,11 +131,119 @@ class _InputPageState extends State<InputPage> {
                     Expanded(
                       child: ReusableCard(
                         colour: kInactiveCardColor,
+                        cardChild: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'WEIGHT',
+                              style: kLabelText,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              textBaseline: TextBaseline.alphabetic,
+                              children: [
+                                Text(
+                                  weight.toString(),
+                                  style: kNumberStyle,
+                                ),
+                                Text(
+                                  ' Kg',
+                                  style: kLabelText,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 4,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                FloatingActionButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      weight--;
+                                    });
+                                  },
+                                  backgroundColor: kActiveCardColor,
+                                  child: Icon(CupertinoIcons.minus,
+                                      color: Colors.white, size: 35),
+                                ),
+                                SizedBox(width: 10),
+                                FloatingActionButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      weight++;
+                                    });
+                                  },
+                                  backgroundColor: kActiveCardColor,
+                                  child: Icon(CupertinoIcons.plus,
+                                      color: Colors.white, size: 35),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Expanded(
                       child: ReusableCard(
                         colour: kInactiveCardColor,
+                        cardChild: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'AGE',
+                              style: kLabelText,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              textBaseline: TextBaseline.alphabetic,
+                              children: [
+                                Text(
+                                  age.toString(),
+                                  style: kNumberStyle,
+                                ),
+                                Text(
+                                  ' Years',
+                                  style: kLabelText,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 4,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                FloatingActionButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      age--;
+                                    });
+                                  },
+                                  backgroundColor: kActiveCardColor,
+                                  child: Icon(CupertinoIcons.minus,
+                                      color: Colors.white, size: 35),
+                                ),
+                                SizedBox(width: 10),
+                                FloatingActionButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  },
+                                  backgroundColor: kActiveCardColor,
+                                  child: Icon(CupertinoIcons.plus,
+                                      color: Colors.white, size: 35),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],
